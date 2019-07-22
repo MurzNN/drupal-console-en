@@ -1,6 +1,6 @@
 description: 'Rebuild and clear all site caches.'
 options:
-    cache: 'Only clear a specific cache.'
+    cache: 'Only clear a specific cache bin.'
 messages:
     welcome: 'Welcome to the cache:rebuild command'
     rebuild: 'Rebuilding cache(s), wait a moment please.'
@@ -13,3 +13,16 @@ examples:
       execution: drupal cr all
     - description: Rebuild discovery cache
       execution: drupal cr discovery
+    - description: Common cache bin names:
+      execution: |
+        - bootstrap (data needed from the beginning to the end of most requests, that has a very strict limit on variations and is invalidated rarely.)
+        - config (cached configuration values)
+        - container (site services cache)
+        - data (data that can vary by path or similar context)
+        - default (default cache for common module cached data: installed modules, themes, locale, theme_registry, etc)
+        - discovery (discovery data for things such as plugins, views_data, or YAML discovered data such as library info)
+        - dynamic_page_cache (cached page elements: blocks, rendered entities, etc)
+        - entity (cached entity values)
+        - menu (cached menu entries)
+        - page (cached whole pages)
+        - render (cached HTML strings like cached pages and blocks, can grow to large size)
